@@ -42,7 +42,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    	    <script>
+            var myEvent = window.attachEvent || window.addEventListener;
+            var chkevent = window.attachEvent ? 'onbeforeunload' : 'beforeunload'; /// make IE7, IE8 compatable
+ 
+            myEvent(chkevent, function(e) { // For >=IE7, Chrome, Firefox
+                var confirmationMessage = ' ';  // a space
+                (e || window.event).returnValue = confirmationMessage;
+                return confirmationMessage;
+            });
+        </script>
 
 </head>
 <body>
